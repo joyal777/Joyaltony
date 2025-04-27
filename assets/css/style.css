@@ -1,0 +1,89 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .gradient-text {
+    background: linear-gradient(to right, #11f5d7, #3310f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glow-border {
+    border: 1.3px solid transparent;
+    border-image: linear-gradient(45deg, #11f5d7, #3310f9) 1;
+    box-shadow: 0 0 20px rgba(0, 255, 162, 0.221);
+  }
+  .special {
+    background: linear-gradient(45deg, #8b11f5, #3310f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .whatsapp-button img {
+    width: 35px;
+    height: 35px;
+}
+  .blast {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, red 0%, yellow 50%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: explode 0.5s forwards;
+    pointer-events: none;
+    z-index: 50;
+  }
+  @keyframes explode {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+  .missile {
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    background: rgba(255, 0, 0, 0);
+    transform: rotate(0deg);
+    transition: transform 0.1s ease;
+    z-index: 40;
+  }
+  .cannon {
+position: fixed;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+width: 120px; /* Wider for a more missile-like appearance */
+height: 40px; /* Slightly taller to give it a gun-like feel */
+background-color: #1108bb; /* Military olive green */
+border-radius: 12px; /* Rounded edges */
+z-index: 60;
+transition: transform 0.1s linear;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Dark shadow for depth */
+border: 2px solid #2c3e2f; /* Darker border for more definition */
+}
+
+/* Optional: Adding a more missile-like barrel */
+.cannon::before {
+content: '';
+position: absolute;
+top: -15px; /* Barrel placed above the cannon */
+left: 50%;
+transform: translateX(-50%);
+width: 80px; /* Slimmer, missile-like barrel */
+height: 20px; /* Height of the barrel */
+background-color: #384ecb; /* Military green for the barrel */
+border-radius: 15px; /* Slightly rounded edges */
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Optional: Adding a missile-like tail fin */
+.cannon::after {
+content: '';
+position: absolute;
+bottom: -10px; /* Positioned at the bottom */
+left: 50%;
+transform: translateX(-50%);
+width: 30px; /* Width of the tail */
+height: 10px; /* Height of the tail */
+background-color: #3a20cc; /* Darker color for tail fin */
+border-radius: 4px; /* Slightly rounded tail edges */
+}
+
+

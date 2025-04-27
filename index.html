@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joyal Tony | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" type="image/png">
+    
+    <!-- Open Graph (OG) Meta Tags -->
+    <meta property="og:title" content="Joyal Tony | Portfolio" />
+    <meta property="og:description" content="Hey let's connect!" />
+    <meta property="og:image" content="assets/images/og.png" />
+    <!-- <meta property="og:url" content="https://your-website-url.com/" /> -->
+    <meta property="og:type" content="website" />
+
+    <!-- Optional: Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chat with Us on WhatsApp!">
+    <meta name="twitter:description" content="Click to message us directly on WhatsApp regarding EGMS support.">
+    <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png">
+
+</head>
+<body class="overflow-x-hidden relative" x-data="missileEffect()" x-init="init()">
+  <button 
+  onclick="sendWhatsApp()"
+  class="whatsapp-button fixed bottom-6 right-6 py-3 px-6 rounded-full bg-gradient-to-r from-green-400 to-blue-500 font-bold text-black hover:opacity-90 transition shadow-lg z-50 flex items-center gap-2"
+>
+  !Sap
+  <img 
+    src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" 
+    alt="WhatsApp"
+    class="w-6 h-6" 
+  >
+</button>
+
+  <!-- Missile and Blast Effects -->
+  <template x-for="m in missiles" :key="m.id">
+    <div class="missile" :style="'left: ' + m.x + 'px; top: ' + m.y + 'px;'"></div>
+  </template>
+
+  <template x-for="b in blasts" :key="b.id">
+    <div class="blast" :style="'left: ' + (b.x - 50) + 'px; top: ' + (b.y - 50) + 'px;'"></div>
+  </template>
+
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col justify-center items-center text-center relative z-10">
+    <h1 class="text-5xl md:text-7xl font-bold text-white transition duration-700">
+      Hello, I'm <span class="block gradient-text">Joyal</span>
+    </h1>
+    <p class="text-gray-400 mt-5 text-xl">Creative Web Developer |<span class="special"> Laravel</span></p>
+    
+  </section>
+
+  <!-- About Section -->
+  <section class="py-20 px-4 md:px-16 bg-black relative z-10" id="about">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold gradient-text mb-6">About Me</h2>
+      <p class="text-gray-300 leading-loose">
+        I'm a Laravel developer with a strong focus on clean, scalable backend systems using Laravel and MySQL. I enhance functionality with frontend tools like Alpine.js, Vue.js, Tailwind, and Bootstrap, creating seamless user experiences.
+        With solid Python skills — from web scraping to building small applications — I bridge backend logic with real-world solutions. I design with purpose, code with precision, and always seek smarter ways to build.
+        Currently advancing in real-time Laravel features and modern frontend technologies, I’m driven to contribute to impactful projects and deliver lasting value.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="py-20 px-4 md:px-16 bg-black relative z-10" id="projects">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center gradient-text mb-10">Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+          <div class="bg-gray-900 p-6 rounded-xl glow-border transform hover:scale-105 transition duration-300">
+            <a href="#">
+            <img src="assets/images/portfolio.png" alt="Screenshot of Portfolio Project" class="rounded-lg mb-4">
+            <h3 class="text-2xl font-semibold mb-2">Portfolio Site</h3>
+            <p class="text-gray-400 text-sm">A personal portfolio built with Tailwind CSS and Alpine.js.</p>
+          </a>
+          </div>
+        
+        
+          <div class="bg-gray-900 p-6 rounded-xl glow-border transform hover:scale-105 transition duration-300">
+            <a href="https://github.com/joyal777/Novo">
+            <img src="assets/images/novo-profile.png" alt="Creative Agency Website Preview" class="rounded-lg mb-4">
+            <h3 class="text-2xl font-semibold mb-2"><span class="special">Novo</span> | Movie Fetching </h3>
+            <p class="text-gray-400 text-sm">An elegant movie site built with PHP | Laravel and Alpine.js with tailwindcss and bootstrap</p>
+            </a>
+          </div>
+        
+        <div class="bg-gray-900 p-6 rounded-xl glow-border transform hover:scale-105 transition duration-300">
+          <a href="https://github.com/joyal777/Swiftsports">
+          <img src="assets/images/swiftsports.png" alt="Landing Page Snapshot" class="rounded-lg mb-4">
+          <h3 class="text-2xl font-semibold mb-2"><span class="special">Swift</span> | Sports Website</h3>
+          <p class="text-gray-400 text-sm">Laravel sports website using mysql node modules ,bootstrap , tailwindcss</p>
+        </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="py-20 px-4 md:px-16 bg-black relative z-10" id="skills">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold gradient-text mb-10">Skills</h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Laravel | PHP</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Python</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Alpine.js</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Vue.js</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Tailwind CSS</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Bootstrap</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">REST API</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">HTML | CSS | Js</span>
+        <span class="px-4 py-2 bg-gray-800 rounded-full glow-border">Cloud | IBM</span>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20 px-4 md:px-16 bg-black relative z-10" id="contact">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-4xl font-bold text-center gradient-text mb-6">Contact Me</h2>
+      <form class="bg-gray-900 p-6 rounded-xl space-y-4 glow-border" action="https://formspree.io/f/mkgrgkar" method="POST">
+        <label>
+          <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 rounded bg-black text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </label>
+        <label>
+          <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded bg-black text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </label>
+        <label>
+          <textarea placeholder="Your Message" name="message" rows="5" required class="w-full px-4 py-2 rounded bg-black text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </label>
+        <button type="submit" class="w-full py-2 rounded bg-gradient-to-r from-green-400 to-blue-500 font-bold text-black hover:opacity-90 transition">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500 mt-3 text-sm relative z-10">
+    &copy; 2025 Joyal Tony. All rights reserved.
+  </footer>
+
+  <!-- Missile Logic -->
+  <script>
+    function missileEffect() {
+      let timeout;
+      return {
+        x: 0,
+        y: 0,
+        missiles: [],
+        blasts: [],
+        id: 0,
+        updatePosition(event) {
+          this.x = event.clientX;
+          this.y = event.clientY;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => this.shootMissile(), 1000);
+        },
+        shootMissile() {
+          const id = this.id++;
+          const startX = Math.random() * window.innerWidth;
+          const startY = window.innerHeight + 20;
+          const missile = { id, x: startX, y: startY };
+          this.missiles.push(missile);
+
+          const cannon = document.getElementById('cannon');
+          if (cannon) {
+            const rect = cannon.getBoundingClientRect();
+            const cannonX = rect.left + rect.width / 2;
+            const cannonY = rect.top + rect.height / 2;
+            const angle = Math.atan2(this.y - cannonY, this.x - cannonX) * (180 / Math.PI);
+            cannon.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+          }
+
+          const dx = this.x - startX;
+          const dy = this.y - startY;
+          const steps = 30;
+          let step = 0;
+          const move = () => {
+            missile.x = startX + (dx * step / steps);
+            missile.y = startY + (dy * step / steps);
+            if (step++ < steps) requestAnimationFrame(move);
+            else {
+              this.blasts.push({ id, x: this.x, y: this.y });
+              setTimeout(() => {
+                this.blasts = this.blasts.filter(b => b.id !== id);
+              }, 600);
+              this.missiles = this.missiles.filter(m => m.id !== id);
+            }
+          };
+          move();
+        },
+        init() {
+          window.addEventListener('mousemove', (e) => this.updatePosition(e));
+        }
+      }
+    }
+    function sendWhatsApp() {
+    const phoneNumber = "919188828360";  // Example: India number (without +)
+    const message = "Hello! Joyal I've recently viewed your profile and wanted to connect you!";
+    
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(url, "_blank");  // Open in new tab
+}
+  </script>
+</body>
+</html>
